@@ -1,0 +1,25 @@
+<title>Login</title>
+{% extends 'basic_app/base.html'%}
+    {% block body_block %}
+        <div class="jumbotron">
+            <h2 class="display-4">Please Login</h2>
+            
+
+        <form action="{% url 'basic_app:user_login' %}" method="post">
+
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username" class="">Username: </label>
+                <input type="text" class="form-control" name="username" placeholder="Enter your Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" class="form-control" name="password">
+            </div>
+
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
+            <span class="float-right mt-4"><a href="{% url 'basic_app:registration'%}">register here</a></span>
+        </form>
+
+        </div>
+    {% endblock %}
